@@ -1,0 +1,7 @@
+venv/
+dataset/
+media/
+trained/
+__pycache__/
+*.pyc
+db.sqlite3

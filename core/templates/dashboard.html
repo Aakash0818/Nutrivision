@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Dashboard | NutriVision</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            min-height: 100vh;
+            background: linear-gradient(
+                rgba(0,0,0,0.7),
+                rgba(0,0,0,0.7)
+            ),
+            url("https://images.unsplash.com/photo-1490645935967-10de6ba17061");
+            background-size: cover;
+            background-position: center;
+        }
+
+        .navbar-brand {
+            font-weight: bold;
+            font-size: 1.4rem;
+        }
+
+        .content-wrapper {
+            margin-top: 110px;
+            padding-bottom: 50px;
+        }
+
+        .dashboard-card {
+            border-radius: 16px;
+            transition: transform 0.2s ease;
+        }
+
+        .dashboard-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-icon {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- 🔵 NAVBAR -->
+<nav class="navbar navbar-dark bg-dark fixed-top shadow">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="{% url 'dashboard' %}">NutriVision</a>
+
+        <div class="d-flex">
+            <span class="navbar-text text-white me-3">
+                {{ request.user.username }}
+            </span>
+            <a href="{% url 'logout' %}" class="btn btn-outline-light btn-sm">
+                Logout
+            </a>
+        </div>
+    </div>
+</nav>
+
+<!-- 🔹 MAIN CONTENT -->
+<div class="container content-wrapper">
+
+    <!-- WELCOME -->
+    <div class="row mb-4">
+        <div class="col text-center text-white">
+            <h2>Welcome, {{ request.user.username }} 👋</h2>
+            <p class="text-light">
+                Upload food images to analyze calories, nutrition,
+                and health suitability using AI.
+            </p>
+        </div>
+    </div>
+
+    <!-- DASHBOARD CARDS -->
+    <div class="row g-4 justify-content-center">
+
+        <!-- Upload Card -->
+        <div class="col-md-4">
+            <div class="card dashboard-card shadow text-center">
+                <div class="card-body">
+                    <div class="card-icon text-success">📸</div>
+                    <h5 class="card-title">Upload Food Image</h5>
+                    <p class="card-text">
+                        Analyze food calories, nutrition,
+                        and disease suitability.
+                    </p>
+                    <a href="{% url 'upload_food' %}" class="btn btn-success">
+                        Upload & Analyze
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Profile Card -->
+        <div class="col-md-4">
+            <div class="card dashboard-card shadow text-center">
+                <div class="card-body">
+                    <div class="card-icon text-primary">👤</div>
+                    <h5 class="card-title">User Profile</h5>
+                    <p class="card-text">
+                        Username: <b>{{ request.user.username }}</b><br>
+                        Email: <b>{{ request.user.email }}</b>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

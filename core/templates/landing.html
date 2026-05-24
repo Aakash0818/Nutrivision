@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>NutriVision | Intelligent Diet Monitoring</title>
+
+    <!-- Bootstrap CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* HERO SECTION */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(
+                rgba(0,0,0,0.6),
+                rgba(0,0,0,0.6)
+            ),
+            url("https://images.unsplash.com/photo-1490645935967-10de6ba17061");
+            background-size: cover;
+            background-position: center;
+            color: white;
+        }
+
+        .hero-content {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: bold;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 20px auto;
+        }
+
+        .btn-custom {
+            padding: 12px 25px;
+            font-size: 1.1rem;
+            border-radius: 30px;
+        }
+
+        /* NAVBAR */
+        .navbar-brand {
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="#">NutriVision</a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'landing' %}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'login' %}">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'register' %}">Register</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'admin_login' %}">Admin</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- HERO SECTION -->
+<section class="hero">
+    <div class="hero-content">
+        <h1>NutriVision</h1>
+        <p>
+            AI-powered food recognition and calorie estimation system
+            that helps users monitor nutrition and make healthier
+            dietary decisions using deep learning.
+        </p>
+
+        <div class="mt-4">
+            <a href="{% url 'register' %}" class="btn btn-success btn-custom me-3">
+                Get Started
+            </a>
+            <a href="{% url 'login' %}" class="btn btn-outline-light btn-custom">
+                Login
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
